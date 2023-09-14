@@ -1,0 +1,19 @@
+*{display: 0; margin: 0; box-sizing: border-box;}
+body{background-color: blanchedalmond;}
+ul {list-style: none; width: 100%; grid-column: 1/3;}
+ul li {padding: 5% 0; width: 100%;}
+h1 {text-align: center;}
+
+#podcast-container{width:80%; margin: 5% auto; padding:0; display:block; display:grid; grid-template-columns:1fr 60% 1fr;}
+#podcast-container ul{width:100%; height: auto; display: block;}
+
+.artwork{grid-column: 1;}
+.artwork img{width:100%; height: auto;}
+
+.music-content{grid-column: 2; padding: 0 3%;}
+.title{font-weight: bold; font-size: larger;}
+.date{display: inline;}
+.duration{display: inline;}
+.description{padding: 5% 0; text-align: justify;}
+
+.audio{grid-column: 3;}
