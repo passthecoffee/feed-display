@@ -24,10 +24,8 @@ fetch(rssFeedURL)
                 title: item.querySelector('title').textContent,
                 description: item.querySelector('description').textContent,
                 listen: item.querySelector('enclosure').getAttribute('url'),
-                // image: item.querySelector('itunes\\:image')?.getAttribute('href') || '',
-                //image: item.querySelector('channel image url')?.getAttribute('href'),
-                image: item.querySelector('channel image url')?.getAttributeNode('href'),
-                duration: item.querySelector('itunes\\:duration')?.textContenty,
+                image: item.querySelector('rss channel image')?.getAttribute('href'),
+                duration: item.querySelector('duration')?.textContent,
                 date: new Date(item.querySelector('pubDate').textContent),
             };
         });
@@ -49,11 +47,11 @@ function updatePodcastDisplay() {
     displayedItems.forEach(item => {
         const itemDiv = document.createElement('ul');
         itemDiv.innerHTML = `
-        <div class="artwork"><img src='${item.image}'/></div>
+        <div class="artwork"><img src="${item.image}"/></div>
         <div class="music-content">
           <div class="title">${item.title}</div>
           <div class="date">${item.date}</div> | 
-          <div class="duration">${item.duration}</div>
+          <div class="duration">${item.duration}sec</div>
           <div class="description"> <p>${item.description}</p>
           <br><a href="${item.listen}">Read More ></a> </div>
         </div>
